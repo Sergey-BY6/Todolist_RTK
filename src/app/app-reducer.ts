@@ -39,4 +39,4 @@ export const initializeAppTC = (): AppThunk => (dispatch) => {
 }
 
 export type RequestStatusType = "idle" | "loading" | "succeeded" | "failed"
-export type InitialStateType = ReturnType<typeof slice.getInitialState>
+export type AppInitialStateType = ReturnType<typeof slice.getInitialState>

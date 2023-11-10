@@ -19,8 +19,8 @@ import {
     Typography,
 } from "@mui/material"
 import { Menu } from "@mui/icons-material"
-import {selectIsLoading} from 'app/app.selector';
-import {useAppSelector} from 'hooks/useAppSelector';
+import { selectIsLoading } from "app/app.selector"
+import { useAppSelector } from "hooks/useAppSelector"
 
 type PropsType = {
     demo?: boolean
