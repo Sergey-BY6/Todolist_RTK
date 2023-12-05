@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {appActions} from 'app/model/appSlice';
+import {appActions} from 'app/appSlice';
 import {createAppAsyncThunk} from 'common/utils';
 import {ResultCode, TaskPriorities, TaskStatuses} from 'common/enums';
 import {clearTasksAndTodolists} from 'common/actions';

@@ -5,7 +5,8 @@ import {useActions} from 'common/hooks';
 import {authThunks} from 'features/auth/model/authSlice';
 import {useSelector} from 'react-redux';
 import {selectIsLoggedIn} from 'features/auth/model/authSelectors';
-import {selectAppStatus} from 'app/model/appSelectors';
+import {selectAppStatus} from 'app/appSelectors';
+import s from "./Header.module.css"
 
 
 
@@ -31,7 +32,9 @@ export const Header = () => {
                     </Button>
                 )}
             </Toolbar>
-            {status === "loading" && <LinearProgress />}
+            {status === "loading"
+                ? <div className={s.linearProgress}><LinearProgress /></div>
+                : <div className={s.linearProgress}></div>}
         </AppBar>
     );
 };

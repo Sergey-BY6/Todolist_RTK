@@ -20,7 +20,6 @@ export const TodolistsList = () => {
     fetchTodolists,
   } = useActions(todolistsThunks);
 
-  ;
 
   useEffect(() => {
     if (!isLoggedIn) {

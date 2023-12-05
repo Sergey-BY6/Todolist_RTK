@@ -1,26 +1,13 @@
 import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {
-    AppBar,
-    Button,
-    CircularProgress,
-    Container,
-    IconButton,
-    LinearProgress,
-    Toolbar,
-    Typography,
-} from '@mui/material';
-import {Menu} from '@mui/icons-material';
-import {Login} from 'features/auth/ui/login/login';
-import {TodolistsList} from 'features/TodolistsList/ui/TodolistsList';
+import {BrowserRouter, HashRouter} from 'react-router-dom';
+import {CircularProgress,} from '@mui/material';
 import {ErrorSnackbar} from 'common/components';
 import {useActions} from 'common/hooks';
-import {selectIsLoggedIn} from 'features/auth/model/authSelectors';
-import {selectAppStatus, selectIsInitialized} from 'app/model/appSelectors';
+import {selectIsInitialized} from 'app/appSelectors';
 import {authThunks} from 'features/auth/model/authSlice';
-import {Header} from 'app/ui/Header/Header';
-import {Routing} from 'app/ui/Routing/Routing';
+import {Header} from 'features/Header/Header';
+import {Routing} from 'features/Routing/Routing';
 
 
 function App() {
@@ -42,13 +29,13 @@ function App() {
     }
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div className="App">
                 <ErrorSnackbar/>
                 <Header/>
                 <Routing/>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
