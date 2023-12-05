@@ -5,11 +5,13 @@ import {Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, G
 import {selectIsLoggedIn} from 'features/auth/model/authSelectors';
 import s from 'features/auth/ui/login/login.module.css';
 import {useLogin} from 'features/auth/lib/useLogin';
+import {AppRootStateType} from 'app/store';
 
 
 export const Login = () => {
 
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isCaptchaUrl = useSelector<AppRootStateType, string | null>(state => state.auth.captchaUrl);
   const formik = useLogin()
 
   if (isLoggedIn) {
@@ -41,6 +43,10 @@ export const Login = () => {
                 label={"Remember me"}
                 control={<Checkbox {...formik.getFieldProps("rememberMe")} checked={formik.values.rememberMe} />}
               />
+              {isCaptchaUrl && <img src={isCaptchaUrl}/>}
+              {isCaptchaUrl && <TextField type="Captcha" label="captcha" margin="normal" {...formik.getFieldProps("captcha")} />}
+              {formik.touched.captcha && formik.errors.captcha && <p className={s.error}>{formik.errors.captcha}</p>}
+
               <Button
                 type={"submit"}
                 variant={"contained"}
